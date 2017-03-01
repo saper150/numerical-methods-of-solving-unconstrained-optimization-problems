@@ -1,0 +1,8 @@
+.result{
+    white-space: pre
+}
+
+.column{
+    float:left;
+    width:33.333%
+}

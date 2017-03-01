@@ -1,0 +1,220 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="boio.css">
+
+        <script type="text/javascript" src = "lib/lodash.js" defer></script>
+        <script type="text/javascript" src="lib/plotly-latest.min.js" defer></script>   
+        <script type="text/javascript" src="boio.js" defer></script>
+        <script type="text/javascript" src="ui.js" defer></script>
+
+
+    </head>
+    <body>
+         <div class="column">
+             <h3>Fibonaci algorythm</h3>
+             <label for="fib-function">one virable function</label>
+             <input type="text" id = "fib-function" value="PI()*x0*x0+(1/x0)">
+             </br>
+             <label for="fib-epsilon">epsilon</label>
+             <input type="number" id = "fib-epsilon" value="0.05">
+             </br>
+             
+             <label for="fib-bottomInterval">bottom interval</label>
+             <input type="number" id = "fib-bottomInterval" value = "0.25">
+             </br>
+             
+             <label for="fib-topInterval">top interval</label>
+             <input type="number" id = "fib-topInterval" value ="0.75">
+             </br>
+             
+             <button onclick="uiFibonaci()">solve</button>
+             <div id="fib-result" class = "result"></div>
+        </div>   
+
+        <div class="column">
+             <h3>newtons method</h3>
+             <label for="newt-function">one virable function</label>
+             <input type="text" id = "newt-function" value="PI()*x0*x0+(1/x0)">
+             </br>
+             <label for="newt-epsilon">epsilon</label>
+             <input type="number" id = "newt-epsilon" value="0.05">
+             </br>
+             
+             <label for="newt-start">starting point</label>
+             <input type="number" id = "newt-start" value = "0.25">
+             </br>
+             
+             <label for="newt-numericalDerivatives">numerical derivatives</label>
+              <input type="checkbox"id ="newt-numericalDerivatives"  checked><br>
+
+
+            <label for="newt-firstDerivative">first derivatives</label>
+             <input type="text" id = "newt-firstDerivative">
+             </br>
+  
+              <label for="newt-secondDerivative">second derivatives</label>
+             <input type="text" id = "newt-secondDerivative">
+             </br>
+
+
+             <button onclick="uiNewton()">solve</button>
+             <div id="newt-result" class = "result"></div>
+        </div>
+
+
+        <div class="column">
+             <h3>powell algorithm</h3>
+             <label for="pow-function">one virable function</label>
+             <input type="text" id = "pow-function" value="PI()*x0*x0+(1/x0)">
+             </br>
+             <label for="pow-epsilon">epsilon</label>
+             <input type="number" id = "pow-epsilon" value="0.05">
+             </br>
+             
+             <label for="pow-start">starting point</label>
+             <input type="number" id = "pow-start" value = "0">
+             </br>
+             
+             <label for="pow-interval">interval</label>
+             <input type="number" id = "pow-interval" value = "0.1">
+             </br>
+             
+
+             <button onclick="uiPowell()">solve</button>
+             <div id="pow-result" class = "result"></div>
+        </div>
+        <br style="clear:both"></br>
+
+
+        <div class="column">
+             <h3>gaussSeindel algorythm</h3>
+             <label for="gaus-function">function</label>
+             <input type="text" id = "gauss-function" value="3*x0*x0-(x0*x1)+0.5*x1*x1-12*x0">
+             </br>
+             <label for="gauss-epsilon">epsilon</label>
+             <input type="number" id = "gauss-epsilon" value="0.01">
+             </br>
+             
+             <label for="gauss-start">starting point</label>
+             <input type="text" id = "gauss-start" value = "2,1">
+             </br>
+             
+             <button onclick="uiGauss()">solve</button>
+             <div id="gauss-result" class = "result"></div>
+        </div>
+        
+        <div class="column">
+             <h3>fastest desent algorythm</h3>
+             <label for="fast-function">function</label>
+             <input type="text" id = "fast-function" value="3*x0*x0-(x0*x1)+0.5*x1*x1-12*x0">
+             </br>
+             <label for="fast-epsilon">epsilon</label>
+             <input type="number" id = "fast-epsilon" value="0.01">
+             </br>
+             
+             <label for="fast-start">starting point</label>
+             <input type="text" id = "fast-start" value = "2,1">
+             </br>
+             
+             <button onclick="uiFast()">solve</button>
+             <div id="fast-result" class = "result"></div>
+        </div>
+
+
+        <div class="column">
+             <h3>powell's conjugate direction</h3>
+             <label for="powc-function">function</label>
+             <input type="text" id = "powc-function" value="x0*x0*x1+x0*x1*x1-250*x0*x1">
+             </br>
+             <label for="powc-epsilon">epsilon</label>
+             <input type="number" id = "powc-epsilon" value="0.01">
+             </br>
+             
+             <label for="powc-start">starting point</label>
+             <input type="text" id = "powc-start" value = "50,50">
+             </br>
+             
+             <button onclick="uiPowc()">solve</button>
+             <div id="powc-result" class = "result"></div>
+        </div>
+        <br style="clear:both"></br>
+
+
+        <div class="column">
+             <h3>conjugate gradient</h3>
+             <label for="cgrad-function">one virable function</label>
+             <input type="text" id = "cgrad-function" value="3*x0*x0-(x0*x1)+0.5*x1*x1-12*x0">
+             </br>
+             <label for="cgrad-epsilon">epsilon</label>
+             <input type="number" id = "cgrad-epsilon" value="0.01">
+             </br>
+             
+             <label for="cgrad-start">starting point</label>
+             <input type="text" id = "cgrad-start" value = "2,1">
+             </br>
+             
+             <button onclick="uiCgrad()">solve</button>
+             <div id="cgrad-result" class = "result"></div>
+        </div>
+
+        <div class="column">
+             <h3>Minimum in direction</h3>
+             <label for="min-function">function</label>
+             <input type="text" id = "min-function" value="3*x0*x0-(x0*x1)+0.5*x1*x1-12*x0">
+             </br>
+             <label for="min-epsilon">epsilon</label>
+             <input type="number" id = "min-epsilon" value="0.05">
+             </br>
+             
+             <label for="min-start">starting point</label>
+             <input type="text" id = "min-start" value = "2,1">
+             </br>
+             
+             <label for="min-numericalDerivatives">numerical derivatives</label>
+              <input type="checkbox"id ="min-numericalDerivatives"  checked><br>
+
+
+            <label for="min-firstDerivative">first derivative</label>
+             <input type="text" id = "min-firstDerivative">
+             </br>
+  
+              <label for="min-secondDerivative">second derivative</label>
+             <input type="text" id = "min-secondDerivative">
+             </br>
+
+             <label for="min-direction">direction</label>
+             <input type="text" id = "min-direction" value="1,1">
+             </br>
+
+             <button onclick="uiMin()">solve</button>
+             <div id="min-result" class = "result"></div>
+        </div>
+
+        <div class="column">
+             <h3>gradient</h3>
+             <label for="grad-function">function</label>
+             <input type="text" id = "grad-function" value="3*x0*x0-(x0*x1)+0.5*x1*x1-12*x0">
+             </br>
+
+             <label for="grad-delta">delta</label>
+             <input type="number" id = "grad-delta" value="0.05">
+             </br>
+             
+             <label for="grad-point">point</label>
+             <input type="text" id = "grad-point" value = "2,1">
+             </br>
+             
+
+             <button onclick="uiGrad()">solve</button>
+             <div id="grad-result" class = "result"></div>
+        </div>
+
+        <br style="clear:both"></br>
+
+        <div id="plotly">
+        </div>
+    </body>
+
+
+    
+</html>
